@@ -15,6 +15,7 @@ let salon = {
             gender: "male",
             services: ["Tooth Brushing"],
             package: "Basic",
+            breed:"Beagle",
         },
         {
             name: "Scrappy",
@@ -22,6 +23,7 @@ let salon = {
             gender: "male",
             services: ["Nail Cutting", "Pet haircut"],
             package: null,
+            breed: "Bulldog",
         },
         {
             name: "Tweety bird",
@@ -29,6 +31,7 @@ let salon = {
             gender: "female",
             services: ["Nail Cutting", "Pet haircut"],
             package: null,
+            breed: "Siberian Husky",
         }
     ]
 }
