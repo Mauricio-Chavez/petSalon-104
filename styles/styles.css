@@ -500,6 +500,7 @@ nav a {
     .register-title{
         margin: 10rem auto;
         border: none;
+        text-align: center;
     }
     .client-info{
         width: 100%;

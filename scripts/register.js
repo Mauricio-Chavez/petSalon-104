@@ -37,9 +37,9 @@ function displayCount(){
 
 function displayNames(){
     let pets = salon.pets;
-    let text = "<table><tr><th>Name</th><th>Age</th><th>Gender</th><th class ='none-display'>Breed</th><th>Species</th><th id='counter-container'></th></tr>";
+    let text = "<table><tr><th>Name</th><th>Age</th><th>Gender</th><th class ='none-display'>Breed</th><th class ='none-display'>Species</th><th id='counter-container'></th></tr>";
     for (let i = 0; i < pets.length; i++) {
-        text += `<tr><td>${pets[i].name}</td><td>${pets[i].age}</td><td>${pets[i].gender}</td><td class ='none-display'>${pets[i].breed}</td><td>${pets[i].species}</td><td><button class="delete-btn" onClick="deleteElement('${pets[i].name}')">Delete</button></td></tr>`;
+        text += `<tr><td>${pets[i].name}</td><td>${pets[i].age}</td><td>${pets[i].gender}</td><td class ='none-display'>${pets[i].breed}</td><td class ='none-display'>${pets[i].species}</td><td><button class="delete-btn" onClick="deleteElement('${pets[i].name}')">Delete</button></td></tr>`;
     }
     text += "</table>";
     document.getElementById('pets-container').innerHTML = text;
