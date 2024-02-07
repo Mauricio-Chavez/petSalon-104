@@ -360,9 +360,11 @@ footer {
 
 
 table {
-    border-collapse: collapse;
-    width: 80%;
-
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
 }
 
 table td,
@@ -391,7 +393,89 @@ tr:hover td {
     color: white;
 
 }
+.underline a{
+    text-decoration: none;
+}
+nav a {
+    text-decoration: none;
+}
+.form-container{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.6rem;
+    box-shadow: #122857 0.3rem 0.3rem 0.3rem 0.3rem;
+    margin: 5rem auto;
+    padding: 5rem;
+}
+.form-container h1{
+    font-size: 4rem;
+    margin-top: 5rem;
+    color: #122857;
+}
+.form-container label{
+    color: #777777;
+}
+.input-group{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
 
+.select-group{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 1rem auto; 
+}
+.correction-label{
+    margin: 1rem 0;
+}
+.select-group select{
+    height: 3rem;
+    border: none;
+    border-bottom: #1dd3c6 0.3rem solid;
+    border-radius: 1.2rem;
+    color: #777777;
+    font-size: 1.6rem;
+}
+.note{
+    color: rgb(240, 140, 140) !important;
+    
+}
+.input-group input{
+    border: none;
+    border-bottom: #1dd3c6 0.3rem solid;
+    height: 3rem;
+    border-radius: 1.2rem;
+    padding-left: 1rem;
+    color: #122857;
+}
+.underline-register{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    border-bottom: #08475a 0.3rem solid;
+    margin-bottom: 5rem;
+
+}
+.btn-register{
+    margin: 1rem auto 5rem auto;
+    width: 50%;
+    padding: 1rem 0;
+    color: white;
+    background-color: #122857;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 1rem;
+}
 @media screen and (max-width: 768px) {
     .flex-container {
         flex-direction: column;
@@ -481,5 +565,21 @@ tr:hover td {
     }
     .site-footer p{
         font-size: 1.3rem;
+    }
+    .select-group select{
+        width: 90%;
+    }
+    .input-group input{
+        width: 90%;
+    }
+    table{
+        width: 90%;
+    }
+    .none-display{
+        display: none;
+    }
+    .form-container{
+        width: 90%;
+        padding: 0;
     }
 }

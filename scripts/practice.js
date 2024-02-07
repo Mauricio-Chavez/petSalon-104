@@ -32,5 +32,17 @@ function calculateProfits(){
     console.log(price1+price2+price3);
 }
 
-calculateProfits(); 
+// Object Constructor
+function Person(name, age, occupation) {
+    this.name = name;
+    this.age = age;
+    this.occupation = occupation;
 
+    this.greet = function() {
+        console.log(`Hello, I'm ${this.name} and I'm ${this.age} years old.`);
+    };
+}
+
+// Create instances using the object constructor
+let person1 = new Person("John", 25, "Student");
+let person2 = new Person("Mary", 30, "Developer");
