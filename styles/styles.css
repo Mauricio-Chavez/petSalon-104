@@ -18,6 +18,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
+
 :root {
     --blue: #122857;
     --bluegreen: #1dd3c6;
@@ -324,6 +325,7 @@ footer {
 }
 .client-info{
     margin: 0 auto;
+    margin-bottom: 3rem;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -334,7 +336,6 @@ footer {
 }
 #pets-container{
     width: 100%;
-    margin: 4rem auto;
     height: auto;
     display: flex;
     justify-content: center;
@@ -456,6 +457,7 @@ nav a {
     border-radius: 1.2rem;
     padding-left: 1rem;
     color: #122857;
+    width: 90%;
 }
 .underline-register{
     display: flex;
@@ -475,6 +477,69 @@ nav a {
     font-size: 1.6rem;
     font-weight: bold;
     border-radius: 1rem;
+}
+/*!Card*/
+.petCard{
+    
+    border-radius: 0.5rem;
+    padding: 1.7rem;
+    width: 30rem;
+    height: auto;
+    font-size: 1.6rem;
+}
+.change-color{
+    color: #F5F5DC;
+    font-weight: bold;
+}
+.name-pet{
+    color: #08475a;
+    font-weight: bold;
+}
+.detele-container{
+    display: flex;
+    justify-content: right;
+}
+
+.btn-reverse-container{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    margin-top: 5rem;
+}
+#searchBar{
+    border: none;
+    border-bottom: #122857 0.3rem solid;
+    height: 3rem;
+    border-radius: 1.2rem;
+    padding-left: 1rem;
+    color: #122857;
+    width: 30%;
+}
+.btn-reverse{
+    background-color: #08475a;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+#pets{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.7rem;
+    row-gap: 1rem;
+}
+#title-card{
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #155e59;
 }
 @media screen and (max-width: 768px) {
     .flex-container {
@@ -582,5 +647,20 @@ nav a {
     .form-container{
         width: 90%;
         padding: 0;
+    }
+    #pets{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .petCard{
+        width: 100%;
+    }
+    #searchBar{
+        width: 60%;
     }
 }

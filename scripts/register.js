@@ -10,7 +10,7 @@ let salon = {
     },
     pets: []
 }
-function Pet(n,a,g,b,s,p,sp){
+function Pet(n,a,g,b,s,p,sp,o){
     this.name = n;
     this.age = a
     this.gender = g;
@@ -18,7 +18,7 @@ function Pet(n,a,g,b,s,p,sp){
     this.service = s;
     this.package = p;
     this.species = sp;
-    console.log(this.service);
+    this.owner = o;
 }
 
 
@@ -26,42 +26,27 @@ for (let i = 0; i < salon.pets.length; i++) {
     console.log(salon.pets[i].name);
 }
 
-function displayFooterInfo() {
-    document.getElementById('info').innerText = `Welcome to the ${salon.name} the address is ${salon.address.street} ${salon.address.number} ${salon.address.zip}`;
+function getE(id){
+    return document.getElementById(id);
 }
-function displayCount(){
-    let count = salon.pets.length;
-    document.getElementById('counter-container').innerHTML = `Total Pets: <span class="highlighting-green">${count}<span/>`;
-
-}
-
-function displayNames(){
-    let pets = salon.pets;
-    let text = "<table><tr><th>Name</th><th>Age</th><th>Gender</th><th class ='none-display'>Breed</th><th class ='none-display'>Species</th><th id='counter-container'></th></tr>";
-    for (let i = 0; i < pets.length; i++) {
-        text += `<tr><td>${pets[i].name}</td><td>${pets[i].age}</td><td>${pets[i].gender}</td><td class ='none-display'>${pets[i].breed}</td><td class ='none-display'>${pets[i].species}</td><td><button class="delete-btn" onClick="deleteElement('${pets[i].name}')">Delete</button></td></tr>`;
-    }
-    text += "</table>";
-    document.getElementById('pets-container').innerHTML = text;
-}
-
-
 function deleteElement(petName){
     let index = salon.pets.findIndex(pet => pet.name === petName);
     if (index !== -1) {
         salon.pets.splice(index, 1);
     }
-    displayNames();
+    displayPetCards();
     displayCount();
+    displayNames();
 }
 
-    let name = document.getElementById('name');
-    let age = document.getElementById('age');
-    let gender = document.getElementById('gender');
-    let breed = document.getElementById('breed');
-    let package = document.getElementById('package');
-    let services = document.getElementById('service');
-    let species = document.getElementById('species');
+    let name = getE('name');
+    let age = getE('age');
+    let gender = getE('gender');
+    let breed = getE('breed');
+    let package = getE('package');
+    let services = getE('service');
+    let species = getE('species');
+    let owner = getE('owner');
 function register(event){
     event.preventDefault();
     if (!name.value) {
@@ -92,9 +77,13 @@ function register(event){
         alert("Please fill out the species field.");
         return;
     }
+    if (!owner.value) {
+        alert("Please fill out the owner field.");
+        return;
+    }
 
     servicesSp = services.value.split(", ");
-    let pet = new Pet(name.value,age.value,gender.value,breed.value,servicesSp,package.value,species.value);
+    let pet = new Pet(name.value,age.value,gender.value,breed.value,servicesSp,package.value,species.value,owner.value);
     salon.pets.push(pet);
     name.value = "";
     age.value = "";
@@ -103,18 +92,21 @@ function register(event){
     package.value = "";
     services.value = "";
     species.value = "";
+    owner.value = "";
 
-    displayNames();
+    displayPetCards();
     displayCount();
 }
 function init(){
-    let pet1 = new Pet("Scooby",60,"Male","Golden Retriever","Vaccine","Basic","Dog")
-    let pet2 = new Pet("Scrappy",50,"Male","Bulldog","Shower","Standard","Dog")
-    let pet3 = new Pet("Tweety bird",80,"Female","Canary","Nails cut","Premium","Bird")
-    salon.pets.push(pet1,pet2,pet3); 
+    displayFooterInfo();
+    let pet1 = new Pet("Scooby",60,"Male","Golden Retriever","Vaccine","Basic","Dog","Mauricio Chavez")
+    let pet2 = new Pet("Scrappy",50,"Male","Bulldog","Shower","Standard","Dog","Kimberly")
+    let pet3 = new Pet("Tweety bird",80,"Female","Canary","Nails cut, Shower","Premium","Bird","Abel")
+    let pet4 = new Pet("Tweety bird",80,"Female","Canary","Nails cut","None","Bird","Abel")
+    salon.pets.push(pet1,pet2,pet3,pet4); 
     displayNames();
     displayCount();
-    displayFooterInfo()
+    displayPetCards();
 }
 window.onload = init;
 
