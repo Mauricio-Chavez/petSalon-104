@@ -10,7 +10,7 @@ let salon = {
     },
     pets: []
 }
-function Pet(n,a,g,b,s,p,sp,o){
+function Pet(n,a,g,b,s,p,sp,o,d,pa){
     this.name = n;
     this.age = a
     this.gender = g;
@@ -19,8 +19,9 @@ function Pet(n,a,g,b,s,p,sp,o){
     this.package = p;
     this.species = sp;
     this.owner = o;
+    this.description = d;
+    this.payment = pa;
 }
-
 
 for (let i = 0; i < salon.pets.length; i++) {
     console.log(salon.pets[i].name);
@@ -47,65 +48,96 @@ function deleteElement(petName){
     let services = getE('service');
     let species = getE('species');
     let owner = getE('owner');
+    let description = getE('description');
+    let payment = getE('payment');
+
 function register(event){
     event.preventDefault();
+    if(isValid()){
+        servicesSp = services.value.split(", ");
+        let pet = new Pet(name.value,age.value,gender.value,breed.value,servicesSp,package.value,species.value,owner.value,description.value,payment.value);
+        salon.pets.push(pet);
+        name.value = "";
+        age.value = "";
+        gender.value = "";
+        breed.value = "";
+        package.value = "";
+        services.value = "";
+        species.value = "";
+        owner.value = "";
+        description.value = "";
+        payment.value = "";
+        displayPetCards();
+        displayCount();
+        showNotifications("The pet has been registered", "alert-success");
+    }else{
+        showNotifications("Incomplete required fields", "alert-error");
+    }    
+}
+function isValid(){
+    let validation = true;
+    getE('name').classList.remove("input-alert-error");
+    getE('age').classList.remove("input-alert-error");
+    getE('gender').classList.remove("input-alert-error");
+    getE('breed').classList.remove("input-alert-error");
+    getE('package').classList.remove("input-alert-error");
+    getE('species').classList.remove("input-alert-error");
+    getE('owner').classList.remove("input-alert-error");
     if (!name.value) {
-        alert("Please fill out the name field.");
-        return;
+        getE('name').classList.add("input-alert-error");
+        validation = false;
     }
     if (!age.value) {
-        alert("Please fill out the age field.");
-        return;
+        getE('age').classList.add("input-alert-error");
+        validation = false;
     }
     if (!gender.value) {
-        alert("Please select a gender.");
-        return;
+        getE('gender').classList.add("input-alert-error");
+        validation = false;
     }
     if (!breed.value) {
-        alert("Please fill out the breed field.");
-        return;
-    }
-    if (!services.value) {
-        alert("Please fill out the services field.");
-        return;
+        getE('breed').classList.add("input-alert-error");
+        validation = false;
     }
     if (!package.value) {
-        alert("Please select a package.");
-        return;
+        getE('package').classList.add("input-alert-error");
+        validation = false;
     }
     if (!species.value) {
-        alert("Please fill out the species field.");
-        return;
+        getE('species').classList.add("input-alert-error");
+        validation = false;
     }
     if (!owner.value) {
-        alert("Please fill out the owner field.");
-        return;
+        getE('owner').classList.add("input-alert-error");
+        validation = false;
     }
-
-    servicesSp = services.value.split(", ");
-    let pet = new Pet(name.value,age.value,gender.value,breed.value,servicesSp,package.value,species.value,owner.value);
-    salon.pets.push(pet);
-    name.value = "";
-    age.value = "";
-    gender.value = "";
-    breed.value = "";
-    package.value = "";
-    services.value = "";
-    species.value = "";
-    owner.value = "";
-
-    displayPetCards();
-    displayCount();
+    if(!description.value){
+        getE('description').classList.add("input-alert-error");
+        validation = false;
+    }
+    if(!payment.value){
+        getE('payment').classList.add("input-alert-error");
+        validation = false;
+    }
+    return validation;
+}
+function showNotifications(msg,type){
+    getE('notificacions').classList.remove("hidden");
+    getE('notificacions').innerHTML = `<p class="${type}">${msg}</p>`;
+    setTimeout(function(){
+        getE('notificacions').classList.add("hidden");
+    },3000);
 }
 function init(){
     displayFooterInfo();
-    let pet1 = new Pet("Scooby",60,"Male","Golden Retriever","Vaccine","Basic","Dog","Mauricio Chavez")
-    let pet2 = new Pet("Scrappy",50,"Male","Bulldog","Shower","Standard","Dog","Kimberly")
-    let pet3 = new Pet("Tweety bird",80,"Female","Canary","Nails cut, Shower","Premium","Bird","Abel")
-    let pet4 = new Pet("Tweety bird",80,"Female","Canary","Nails cut","None","Bird","Abel")
+    let pet1 = new Pet("Scooby",60,"Male","Golden Retriever","Vaccine","Basic","Dog","Mauricio Chavez","The dog is very friendly","Cash")
+    let pet2 = new Pet("Scrappy",50,"Male","Bulldog","Shower","Standard","Dog","Kimberly","The dog is very friendly","Credit")
+    let pet3 = new Pet("Tweety bird",80,"Female","Canary","Nails cut, Shower","Premium","Bird","Abel","The bird is very friendly","Cash")
+    let pet4 = new Pet("Tweety bird",80,"Female","Canary","Nails cut","None","Bird","Abel","The bird is very friendly","Cash")
     salon.pets.push(pet1,pet2,pet3,pet4); 
     displayNames();
     displayCount();
+    console.log(pet1.package,pet2.package,pet3.package,pet4.package);
     displayPetCards();
 }
 window.onload = init;

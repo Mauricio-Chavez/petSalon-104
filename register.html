@@ -23,6 +23,9 @@
         <h2 class="register-title">Register a New Pet</h2>
     </header>
     <main class="main-register">
+        <div id="notificacions" class="hidden">
+            
+        </div>
         <form action="" class="form-container">
             <div class="underline-register">
                 <h1>Register</h1>
@@ -69,6 +72,19 @@
             <div class="input-group">
                 <label for="">Owner Name</label>
                 <input type="text" id="owner">
+            </div>
+            <div class="input-group">
+                <label for="">Description</label>
+                <input type="text" id="description">
+            </div>
+            <div class="select-group">
+                <label for="">Select Payment Method</label>
+                <select name="" id="payment">
+                    <option value="" disabled selected>-- Select Payment Method --</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Cash">Cash</option>
+                </select>
             </div>
             <button onclick="register(event)" class="btn-register">Button</button>
         </form>

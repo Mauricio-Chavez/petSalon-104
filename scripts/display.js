@@ -59,6 +59,8 @@ function displayPetCards(){
                     <p><span class="change-color">Package:</span> ${pet.package}</p>
                     <p><span class="change-color">Extra Services:</span> ${pet.service}</p>
                     <p><span class="change-color">Owner:</span> ${pet.owner}</p> 
+                    <p><span class="change-color">Description:</span> ${pet.description}</p>
+                    <p><span class="change-color">Payment:</span> ${pet.payment}</p>
                 </div>    
             </div>
         `;

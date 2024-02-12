@@ -459,6 +459,7 @@ nav a {
     color: #122857;
     width: 90%;
 }
+
 .underline-register{
     display: flex;
     justify-content: center;
@@ -540,6 +541,49 @@ nav a {
     margin-bottom: 1rem;
     font-weight: bold;
     color: #155e59;
+}
+.input-alert-error{
+    border-bottom: #d61717 0.3rem solid !important;
+}
+#notificacions{
+    width: 100%;
+}
+.alert-error{
+    position: fixed;
+    margin-left: auto;
+    top: 10%;
+    right: 0;
+    z-index: 1000;
+    background-color: rgb(166, 19, 19);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+    width: 20%;
+    border-radius: 1rem 0 0 1rem;
+    border: rgb(255, 135, 135) 0.3rem solid;
+    border-right: 0;
+    font-size: 1.3rem;
+}
+.alert-success{
+    top: 10%;
+    position: fixed;
+    margin-left: auto;
+    right: 0;
+    z-index: 1000;
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    width: 20%;
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1rem 0 0 1rem;
+    border: rgb(0, 96, 10) 0.3rem solid;
+    border-right: 0;
+    font-size: 1.3rem;
+}
+.hidden{
+    display: none;
 }
 @media screen and (max-width: 768px) {
     .flex-container {
