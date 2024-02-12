@@ -83,6 +83,8 @@ function isValid(){
     getE('package').classList.remove("input-alert-error");
     getE('species').classList.remove("input-alert-error");
     getE('owner').classList.remove("input-alert-error");
+    getE('description').classList.remove("input-alert-error");
+    getE('payment').classList.remove("input-alert-error");
     if (!name.value) {
         getE('name').classList.add("input-alert-error");
         validation = false;
